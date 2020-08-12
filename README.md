@@ -2,15 +2,15 @@
 
 <img src ="https://www.jstips.co/assets/images/jstips-animation.gif">
 
-Repository : js-datavisualisation-challenge
+- Repository : js-datavisualisation-challenge
 
-Mode: duo
+- Mode: duo
 
-Type: consolidation challenge
+- Type: consolidation challenge
 
-Duration: 3 days
+- Duration: 3 days
 
-Deadline : 17/08/2020, 10h00
+- Deadline : 17/08/2020, 10h00
 
 ## Collaborators: 
 
