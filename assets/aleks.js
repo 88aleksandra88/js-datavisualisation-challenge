@@ -9,7 +9,9 @@ function FETCH() {
             if (recuperer.ok) {
                 let data = await recuperer.json().then(data => {
                     // let tableau = data.tableau;
-                    console.log(data)
+                    for (let i = 0; i < data.length; i++) {
+                        canvApi.data.labels[i] = data[i]
+                    }
                     // document.getElementById("firstHeading").innerHTML = tableau
                 });
 
@@ -57,7 +59,7 @@ let canvApi = new Chart(c2, {
 
     // The data of the API
     data: {
-        labels: [''],
+        labels: [],
         datasets: [{
             label: 'Belgium',
             backgroundColor: 'transparent',
@@ -69,5 +71,4 @@ let canvApi = new Chart(c2, {
     options: {
     }
 })
-console.log(crimes.data.labels)
 

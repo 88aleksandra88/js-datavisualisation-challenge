@@ -15,25 +15,20 @@ table1.insertAdjacentElement("beforebegin", c)
 let tr = table1.getElementsByTagName('tr')
 table2.insertAdjacentElement("beforebegin", c)
 
-// arr a supprimer
-let arr = []
 
-for (let i = 0; i < tr.length; i++) {
-    let th = tr[i].children.namedItem
-    console.log(th)
-    if (i === 1) {
-        for (let j = 0; j < th.length; j++) {
-            arr.push(th[i].textContent)
-        }
-    }
-    // for (let j = 0; j < th.length; j++) {
-    //     console.log(th[j].nodeName)
-    //     if (j === 1) {
+let rowLength = table1.rows.length
+// table2.insertAdjacentElement("beforebegin", c)
 
-    //     }
-    // }
-}
-console.log(arr)
+// for (let i = 0; i < rowLength; i++) {
+//     let cell = table1.rows.item(i).cells;
+//     let cellLength = cell.length;
+
+//     for (let j = 0; j < cellLength; j++) {
+//         console.log(cell.item(j).innerHTML)
+//     }
+// }
+
+
 //Grap for crimes
 let crimes = new Chart(c, {
     // Types of chart we use
@@ -65,5 +60,3 @@ let crimes = new Chart(c, {
     options: {
     }
 })
-
-console.log(crimes.data.labels)
