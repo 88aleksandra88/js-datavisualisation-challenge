@@ -16,7 +16,7 @@
 
 - [Robin Jacquemart ](https://github.com/JackRob)
 - [Aleksandra Slowik](https://github.com/88aleksandra88)
-- How we code: Vs code live share
+- How we work: Vs code, and live share mostly
 
 ## Objectives
 
