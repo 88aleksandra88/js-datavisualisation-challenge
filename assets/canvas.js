@@ -3,7 +3,6 @@
 
 // Canvas Crimes
 let c = document.createElement("canvas")
-
 document.body.appendChild(c)
 
 //Grap for crimes
@@ -50,18 +49,18 @@ for (let i = 0; i < YRows.length; i++) {
         for (let j = 2; j < YRows[i].cells.length; j++) {
             country.data.push(parseInt(YRows[i].cells[j].innerHTML))
         }
-
+        
         crimes.data.datasets.push(country)
+    }
+}
 
-        ////Creer un canvas 
-// Insérer le canvas au dessus des tableaux de données
+///////////////////////////
 
-// Canvas Crimes
-let c = document.createElement("canvas")
-document.body.appendChild(c)
+let d = document.createElement("canvas")
+document.body.appendChild(d)
 
 //Grap for crimes
-let crimes = new Chart(c, {
+let population = new Chart(d, {
     // Types of chart we use
     type: 'bar',
 
@@ -73,23 +72,20 @@ let crimes = new Chart(c, {
     options: {
     }
 })
-
-// Premier Tableau 
-let table1 = document.getElementById("table2")
-table1.insertAdjacentElement("beforebegin", c)
+let table2 = document.getElementById("table2")
+table2.insertAdjacentElement("beforebegin", d)
 let t2Json = []
 let t2Years = []
-let YRows = table1.rows
+let Y2Rows = table2.rows
 for (let i = 2; i < YRows[1].cells.length; i++) {
     let years = YRows[1].cells[i].innerHTML
     // t1Years.push(years)  Peut-être à supprimer
-    crimes.data.labels.push(years)
+    population.data.labels.push(years)
 }
-
 for (let i = 0; i < YRows.length; i++) {
     let color = '#' + (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0')
     if (i >= 2) {
-        let country = {
+        let population = {
             label: '',
             borderColor: color,
             backgroundColor: color,
@@ -100,15 +96,13 @@ for (let i = 0; i < YRows.length; i++) {
             minBarLength: 40,
             data: []
         }
-        country.label = YRows[i].cells[1].innerHTML
+        population.label = YRows[i].cells[1].innerHTML
         for (let j = 2; j < YRows[i].cells.length; j++) {
             country.data.push(parseInt(YRows[i].cells[j].innerHTML))
         }
         
-        crimes.data.datasets.push(country)
+        population.data.datasets.push(country)
     }
 }
 
-    }
-}
 
