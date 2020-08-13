@@ -33,33 +33,41 @@ fetch('https://canvasjs.com/services/data/datapoints.php')
             options: {
             }
         })
-        canvAPI.update()
+        updateChart()
     })
     .catch(err => {
         console.log('error :' + err)
     })
 
+let updateChart = () => {
+    fetch('https://canvasjs.com/services/data/datapoints.php') + (dataPoints.length + 1) + (dataPoints[dataPoints.length + 1].y)
+        .then(res => res.json())
+        .then(data => {
+            for (let i = 0; i < data.length; i++) {
+                dataPoints.push({ x: data[i][0], y: data[i][1] })
+                label.push(data[i])
+            }
+            let canvAPI = new Chart(c2, {
+                // Types of chart we use
+                type: 'line',
 
+                data: {
+                    labels: dataPoints,
+                    datasets: [{
+                        label: 'Dynamic Graph',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: dataPoints
+                    }]
+                },
+                options: {
+                }
+            })
+        })
 
-// FETCH();
+        .catch(err => {
+            console.log('error :' + err)
+        })
+    chart.render();
+    setTimeout(function () { updateChart() }, 1000);
 
-// function FETCH() {
-//     (() => {
-//         const findFETCH = async function () {
-//             let recuperer = await fetch("https://canvasjs.com/services/data/datapoints.php");
-//             if (recuperer.ok) {
-//                 let data = await recuperer.json().then(data => {
-//                     
-//                     }
-
-//                 });
-//             } else {
-//                 console.log("error: + recuperer.status");
-//             }
-
-//         };
-//         findFETCH();
-//     })();
-// }
-// setTimeout(function () { updateChart() }, 1000);
-
+}
