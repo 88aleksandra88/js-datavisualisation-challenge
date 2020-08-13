@@ -62,4 +62,7 @@ A method of thinking: Reverse-engineering of your objective: start at the end an
 - To have a graph, you need data. So I have to get them back.
 - Where is this data ?
 - To have a graph I have to find the right place in the DOM, how can I do that?
-- To get a graph I will use this library of data visualization. How does it work? ...
+- To get a graph I will use this library of data visualization. 
+
+<img src ="https://thumbs.gfycat.com/QualifiedLastAngwantibo-size_restricted.gif">
+
