@@ -3,7 +3,6 @@
 
 // Canvas Crimes
 let c = document.createElement("canvas")
-
 document.body.appendChild(c)
 
 //Grap for crimes
