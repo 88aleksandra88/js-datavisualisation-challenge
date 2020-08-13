@@ -1,33 +1,9 @@
 //Creer un canvas 
 // Insérer le canvas au dessus des tableaux de données
-// Premier Tableau 
-let table1 = document.getElementById("table1")
-let table2 = document.getElementById("table2")
 
 // Canvas Crimes
 let c = document.createElement("canvas")
-let ctx = c.getContext('2d')
-c.width = 400;
-c.height = 200;
-
 document.body.appendChild(c)
-table1.insertAdjacentElement("beforebegin", c)
-let tr = table1.getElementsByTagName('tr')
-table2.insertAdjacentElement("beforebegin", c)
-
-
-let rowLength = table1.rows.length
-// table2.insertAdjacentElement("beforebegin", c)
-
-// for (let i = 0; i < rowLength; i++) {
-//     let cell = table1.rows.item(i).cells;
-//     let cellLength = cell.length;
-
-//     for (let j = 0; j < cellLength; j++) {
-//         console.log(cell.item(j).innerHTML)
-//     }
-// }
-
 
 //Grap for crimes
 let crimes = new Chart(c, {
@@ -36,7 +12,7 @@ let crimes = new Chart(c, {
 
     // The data of the API
     data: {
-        labels: [''],
+        labels: [],
         datasets: [{
             label: 'Belgium',
             backgroundColor: 'transparent',
@@ -60,3 +36,33 @@ let crimes = new Chart(c, {
     options: {
     }
 })
+
+
+// Premier Tableau 
+let table1 = document.getElementById("table1")
+table1.insertAdjacentElement("beforebegin", c)
+let t1Json = []
+let t1Years = []
+let YRows = table1.rows
+for (let i = 2; i < YRows[1].cells.length; i++) {
+    let years = YRows[1].cells[i].innerHTML
+    // t1Years.push(years)  Peut-être à supprimer
+    crimes.data.labels.push(years)
+}
+
+for (let i = 0; i < YRows.length; i++) {
+    if (i >= 2) {
+        let country = {
+            label: '',
+            borderColor: 'rgb(50, 140, 30)',
+            backgroundColor: 'transparent',
+            hoverBorderColor: 'rgb(0,100,20)',
+            data: []
+        }
+        country.label = YRows[i].cells[1].innerHTML
+        crimes.data.datasets.push(country)
+        for (let j = 1; j < YRows[i].cells.length; j++) {
+            country.data.push(YRows[i].cells[i].innerHTML)
+        }
+    }
+}

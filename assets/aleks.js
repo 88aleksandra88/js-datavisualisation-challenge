@@ -61,7 +61,7 @@ let canvApi = new Chart(c2, {
     data: {
         labels: [],
         datasets: [{
-            label: 'Belgium',
+            label: [],
             backgroundColor: 'transparent',
             hoverBorderColor: 'rgb(200,80,162)',
             data: [],
@@ -71,4 +71,9 @@ let canvApi = new Chart(c2, {
     options: {
     }
 })
+
+
+//////////////
+
+
 
