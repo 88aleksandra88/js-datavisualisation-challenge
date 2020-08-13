@@ -53,4 +53,3 @@ for (let i = 0; i < YRows.length; i++) {
         crimes.data.datasets.push(country)
     }
 }
-
