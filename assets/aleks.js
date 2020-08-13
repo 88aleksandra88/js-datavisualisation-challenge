@@ -16,7 +16,7 @@ let canvAPI = new Chart(c2, {
 
 // API 
 // 0    1   - > label = Année 
-//0 1  0 1  -> datasets.data / datasets.labels
+//0 1  0 1  -> 0 - > x 1 ->
 
 let h1 = document.getElementById("bodyContent")
 h1.insertAdjacentElement("afterbegin", c2)
@@ -25,7 +25,6 @@ h1.insertAdjacentElement("afterbegin", c2)
 fetch('https://canvasjs.com/services/data/datapoints.php')
     .then(res => res.json())
     .then(data => {
-        console.log(data)
         for (let i = 0; i < data.length; i++) {
             // canvAPI.data.labels.push(i)
             let datApi = {
@@ -38,6 +37,7 @@ fetch('https://canvasjs.com/services/data/datapoints.php')
                 datApi.data.push(data[i][j])
             }
             canvAPI.data.datasets.push(datApi)
+            canvAPI.update()
         }
     })
     .catch(err => {
@@ -67,4 +67,4 @@ console.log(canvAPI.data.datasets)
 //         findFETCH();
 //     })();
 // }
-setTimeout(function () { updateChart() }, 1000);
+// setTimeout(function () { updateChart() }, 1000);

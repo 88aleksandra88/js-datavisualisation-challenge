@@ -49,7 +49,7 @@ for (let i = 0; i < YRows.length; i++) {
         for (let j = 2; j < YRows[i].cells.length; j++) {
             country.data.push(parseInt(YRows[i].cells[j].innerHTML))
         }
-
+        
         crimes.data.datasets.push(country)
     }
 }
