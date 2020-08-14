@@ -40,8 +40,6 @@ fetch('https://canvasjs.com/services/data/datapoints.php?xstart=0&ystart=10&leng
         console.log('error :' + err)
     })
 
-//je prepare le champag
-// OUII xD
 let updateChart = () => {
     fetch('https://canvasjs.com/services/data/datapoints.php?xstart=' + (dataPoints.length + 1) + "&ystart=" + (dataPoints[dataPoints.length - 1].y) + "&length=1&type=json")
         .then(res => res.json())
