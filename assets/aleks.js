@@ -11,19 +11,19 @@ let label = []
 let h1 = document.getElementById("bodyContent")
 h1.insertAdjacentElement("afterbegin", c2)
 
-fetch('https://canvasjs.com/services/data/datapoints.php')
+fetch('https://canvasjs.com/services/data/datapoints.php?xstart=0&ystart=10&length=10&type=json')
     .then(res => res.json())
     .then(data => {
         for (let i = 0; i < data.length; i++) {
             dataPoints.push({ x: data[i][0], y: data[i][1] })
-            label.push(data[i])
+            label.push(i)
         }
-        let canvAPI = new Chart(c2, {
+        canvAPI = new Chart(c2, {
             // Types of chart we use
             type: 'line',
 
             data: {
-                labels: dataPoints,
+                labels: label,
                 datasets: [{
                     label: 'Dynamic Graph',
                     borderColor: 'rgb(255, 99, 132)',
@@ -34,40 +34,32 @@ fetch('https://canvasjs.com/services/data/datapoints.php')
             }
         })
         updateChart()
+        canvAPI.render()
     })
     .catch(err => {
         console.log('error :' + err)
     })
 
+//je prepare le champag
+// OUII xD
 let updateChart = () => {
-    fetch('https://canvasjs.com/services/data/datapoints.php') + (dataPoints.length + 1) + (dataPoints[dataPoints.length + 1].y)
+    fetch('https://canvasjs.com/services/data/datapoints.php?xstart=' + (dataPoints.length + 1) + "&ystart=" + (dataPoints[dataPoints.length - 1].y) + "&length=1&type=json")
         .then(res => res.json())
         .then(data => {
             for (let i = 0; i < data.length; i++) {
                 dataPoints.push({ x: data[i][0], y: data[i][1] })
-                label.push(data[i])
+                label.push((label.length - 1) + 1)
             }
-            let canvAPI = new Chart(c2, {
-                // Types of chart we use
-                type: 'line',
-
-                data: {
-                    labels: dataPoints,
-                    datasets: [{
-                        label: 'Dynamic Graph',
-                        borderColor: 'rgb(255, 99, 132)',
-                        data: dataPoints
-                    }]
-                },
-                options: {
-                }
-            })
         })
-
         .catch(err => {
             console.log('error :' + err)
         })
-    chart.render();
+    canvAPI.update()
+
     setTimeout(function () { updateChart() }, 1000);
 
+
 }
+
+
+
