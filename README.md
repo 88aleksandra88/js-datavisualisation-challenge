@@ -3,6 +3,8 @@
 <img src ="https://www.jstips.co/assets/images/jstips-animation.gif">
 
 - Repository : js-datavisualisation-challenge
+  
+- Website -  https://jackrob.github.io/js-datavisualisation-challenge/
 
 - Mode: duo
 
@@ -16,7 +18,6 @@
 
 - [Robin Jacquemart ](https://github.com/JackRob)
 - [Aleksandra Slowik](https://github.com/88aleksandra88)
-- How we work: Vs code, and live share mostly
 
 ## Objectives
 
@@ -43,6 +44,7 @@ In this html file, you will find two data tables. Use JavaScript to traverse the
 If javascript is disabled, the graph does not appear. If javascript is enabled, the graph appears between the title and the table.
 
 - Remote data, in real-time, via ajax
+There are data sitting at this URL : https://canvasjs.com/services/data/datapoints.php
 
 Retrieve the data via Ajax, and use it to insert a graph that refreshes every second, just below the main title (h1) of the article.
 
@@ -58,11 +60,3 @@ Again: if javascript is disabled, the graph does not appear. If javascript is en
 
 - Attack the problem by looking for a good logical path. Break it down into small problems, into progressive steps. Commit as you move forward. First the DOM, access the right place, then retrieve the data, then generate the graph. Something like that 😉
 A method of thinking: Reverse-engineering of your objective: start at the end and go up the thread of dependencies to the starting point. It gives something like this:
-
-- To have a graph, you need data. So I have to get them back.
-- Where is this data ?
-- To have a graph I have to find the right place in the DOM, how can I do that?
-- To get a graph I will use this library of data visualization. 
-
-<img src ="https://thumbs.gfycat.com/QualifiedLastAngwantibo-size_restricted.gif">
-
