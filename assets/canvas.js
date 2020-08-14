@@ -19,6 +19,8 @@ let crimes = new Chart(c, {
     }
 })
 
+
+
 // Premier Tableau 
 let table1 = document.getElementById("table1")
 table1.insertAdjacentElement("beforebegin", c)
@@ -32,6 +34,7 @@ for (let i = 2; i < YRows[1].cells.length; i++) {
 }
 
 for (let i = 0; i < YRows.length; i++) {
+    // Couleur Random pour le graph
     let color = '#' + (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0')
     if (i >= 2) {
         let country = {
@@ -49,7 +52,7 @@ for (let i = 0; i < YRows.length; i++) {
         for (let j = 2; j < YRows[i].cells.length; j++) {
             country.data.push(parseInt(YRows[i].cells[j].innerHTML))
         }
-        
+
         crimes.data.datasets.push(country)
     }
 }
@@ -78,17 +81,18 @@ let t2Json = []
 let t2Years = []
 let Y2Rows = table2.rows
 for (let i = 2; i < Y2Rows[1].cells.length; i++) {
-    let years = Y2Rows[1].cells[i].innerHTML
-    // t1Years.push(years)  Peut-être à supprimer
+    let years = Y2Rows[0].cells[i].innerHTML
+    // t2Years.push(years)  Peut-être à supprimer
     population.data.labels.push(years)
     ///////pas d'erreur jusqu'au la mais 312 en années? whyyyy 
     for (let i = 0; i < Y2Rows.length; i++) {
-        let color2 = '#' + (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0')
-        if (i >= 2) {
+        // Couleur Random pour le graph
+        let color = '#' + (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0')
+        if (i >= 1) {
             let country2 = {
                 label: '',
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: color,
+                backgroundColor: color,
                 //Bar variante 
                 barPercentage: 10,
                 barThickness: 2,
@@ -100,12 +104,12 @@ for (let i = 2; i < Y2Rows[1].cells.length; i++) {
             for (let j = 2; j < Y2Rows[i].cells.length; j++) {
                 country2.data.push(parseInt(Y2Rows[i].cells[j].innerHTML))
             }
-            
+
             population.data.datasets.push(country2)
         }
         ///////////////////////yeyyyyyyyyyyy!!!!!!!! ca marcheuhhh mais revoir les couleurs tt ca car c'est moche
     }
-    
+
 
 
 }
