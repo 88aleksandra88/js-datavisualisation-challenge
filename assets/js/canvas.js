@@ -21,6 +21,7 @@ let table1 = document.getElementById("table1")
 table1.insertAdjacentElement("beforebegin", c)
 let t1Years = []
 let YRows = table1.rows
+// Prend les
 for (let i = 2; i < YRows[1].cells.length; i++) {
     let years = YRows[1].cells[i].innerHTML
     crimes.data.labels.push(years)
